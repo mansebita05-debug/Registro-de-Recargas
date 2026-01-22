@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de ventas</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input, select {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de ventas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad (USD)</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" placeholder="Ingrese el nombre"></td>
+                <td><input type="number" placeholder="Ingrese la cantidad en USD" min="0" step="0.01"></td>
+                <td><input type="date"></td>
+                <td>
+                    <select>
+                        <option value="debe">Debe</option>
+                        <option value="pagado">Pagado</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="agregarFila()">Agregar fila</button>
+    <script>
+        function agregarFila() {
+            const tbody = document.querySelector('tbody');
+            const nuevaFila = document.createElement('tr');
+            nuevaFila.innerHTML = `
+                <td><input type="text" placeholder="Ingrese el nombre"></td>
+                <td><input type="number" placeholder="Ingrese la cantidad en USD" min="0" step="0.01"></td>
+                <td><input type="date"></td>
+                <td>
+                    <select>
+                        <option value="debe">Debe</option>
+                        <option value="pagado">Pagado</option>
+                    </select>
+                </td>
+            `;
+            tbody.appendChild(nuevaFila);
+        }
+    </script>
+</body>
+</html>
